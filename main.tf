@@ -45,6 +45,9 @@ resource "aws_instance" "this" {
   secondary_private_ips       = var.secondary_private_ips
   ipv6_address_count          = var.ipv6_address_count
   ipv6_addresses              = var.ipv6_addresses
+  lifecycle {
+    prevent_destroy = true
+  }
 
   ebs_optimized = var.ebs_optimized
 
