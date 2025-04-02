@@ -370,6 +370,7 @@ resource "aws_instance" "ignore_ami" {
   volume_tags = var.enable_volume_tags ? merge({ "Name" = var.name }, var.volume_tags) : null
 
   lifecycle {
+    prevent_destroy = true
     ignore_changes = [
       ami
     ]
